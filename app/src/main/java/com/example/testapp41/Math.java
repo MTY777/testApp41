@@ -27,7 +27,9 @@ public class Math {
         String result = "";
         if (b.equals("0") || a.equals("0")) {
             result = "на ноль нельзя";
-        } else {
+        } else if (Integer.parseInt(b) % 2 == 0 && Integer.parseInt(a) % 2 == 1){
+          result = "делить нельзя";
+        }else {
             int num1 = Integer.parseInt(a);
             int num2 = Integer.parseInt(b);
             return String.valueOf(num1 / num2);

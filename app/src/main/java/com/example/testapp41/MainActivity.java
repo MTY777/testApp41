@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setupUI();
+        divideUI();
     }
 
     private void setupUI() {
@@ -27,6 +28,19 @@ public class MainActivity extends AppCompatActivity {
                 String num1 = binding.num1Ed.getText().toString();
                 String num2 = binding.num2Ed.getText().toString();
                 String result = math.add(num1, num2);
+                binding.resultTv.setText(result);
+            }
+        });
+    }
+
+    private void divideUI() {
+        binding.divideBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Math math = new Math();
+                String num1 = binding.num1Ed.getText().toString();
+                String num2 = binding.num2Ed.getText().toString();
+                String result = math.divide(num1, num2);
                 binding.resultTv.setText(result);
             }
         });

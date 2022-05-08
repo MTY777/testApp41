@@ -49,8 +49,8 @@ public class MathTest {
     }
 
     @Test
-    public void notEvenDivide(){
-        assertEquals("на не четно нельзя",math.divide("12","5"));
+    public void evenDivide(){
+        assertEquals("на четное нельзя", math.divide("5", "2"));
     }
 
     @After

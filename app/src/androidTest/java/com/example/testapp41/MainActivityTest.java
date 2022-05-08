@@ -23,9 +23,18 @@ public class MainActivityTest {
 
     @Test
     public void plusCase (){
-        onView(withId(R.id.num1_ed)).perform(typeText("3"));
-        onView(withId(R.id.num2_ed)).perform(typeText("5"));
+        onView(withId(R.id.num1_ed)).perform(typeText(withId(R.id.num1_ed).toString()));
+        onView(withId(R.id.num2_ed)).perform(typeText(withId(R.id.num2_ed).toString()));
         onView(withId(R.id.ok_btn)).perform(click());
-        onView(withId(R.id.result_tv)).check(matches(withText("8")));
+        onView(withId(R.id.result_tv)).check(matches(withText("0")));
     }
+
+    @Test
+    public void divide(){
+        onView(withId(R.id.num1_ed)).perform(typeText(withId(R.id.num1_ed).toString()));
+        onView(withId(R.id.num2_ed)).perform(typeText(withId(R.id.num2_ed).toString()));
+        onView(withId(R.id.ok_btn)).perform(click());
+        onView(withId(R.id.result_tv)).check(matches(withText("0")));
+    }
+
 }
