@@ -11,9 +11,9 @@ public class Math {
         if (a.isEmpty() || b.isEmpty()) {
             return "Пусто";
         }
-        if (isNumeric(a) || isNumeric(b)) {
-            int num1 = Integer.parseInt(a);
-            int num2 = Integer.parseInt(b);
+        if (isNumeric(a) && isNumeric(b)) {
+            int num1 = (int) Double.parseDouble(a);
+            int num2 = (int) Double.parseDouble(b);
 
             result = String.valueOf(num1 + num2);
         } else {
@@ -28,7 +28,7 @@ public class Math {
         if (b.equals("0") || a.equals("0")) {
             result = "на ноль нельзя";
         } else if (Integer.parseInt(b) % 2 == 0 && Integer.parseInt(a) % 2 == 1){
-          result = "делить нельзя";
+          result = "на четное нельзя";
         }else {
             int num1 = Integer.parseInt(a);
             int num2 = Integer.parseInt(b);
@@ -39,9 +39,11 @@ public class Math {
 
 
     public boolean isNumeric(String strNum) {
-        if (strNum == null) {
-            return false;
-        }
-        return pattern.matcher(strNum).matches();
+       try{
+           Double.parseDouble(strNum);
+           return true;
+       }catch (NumberFormatException e){
+           return false;
+       }
     }
 }
